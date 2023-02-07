@@ -1,25 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import Zamikanie from "./reactTsSobes/zamikanie";
+import { say } from "./tsSobes/clases";
+
 
 function App() {
+  const [counter, setCounter] = useState<number>(0)
+
+  // let inter: any
+
+  // const start = () => {
+  //   console.log("hello")
+  //   inter = setInterval(() => {
+  //     setCounter(prev => ++prev)
+  //   }, 2000)
+
+  //   if (counter === 4) {
+  //     clearInterval(inter)
+  //     console.log('finish')
+  //   }
+  // }
+  let inter: any
+  useEffect(() => {
+    if (inter) {
+      console.log("clear")
+      clearInterval(inter)
+    }
+    inter = setInterval(() => {
+      setCounter(prev => ++prev)
+      console.log(counter)
+    }, 1000)
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.StrictMode>
+      <div className="App">
+        {/* <Zamikanie></Zamikanie> */}
+        {counter}
+      </div>
+    </React.StrictMode>
   );
 }
 
