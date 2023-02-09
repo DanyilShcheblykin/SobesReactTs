@@ -3,6 +3,8 @@ import React, { useState } from "react";
 const Zamikanie = () => {
   const [state, setState] = useState(0);
 
+  const x = 10;
+
   const add = ()=>{
     setState(state+1)
     setState(state+1) //пишется что срабатывает замыкание функционального компонента 
